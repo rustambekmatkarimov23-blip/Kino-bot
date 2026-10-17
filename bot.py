@@ -2,7 +2,20 @@ import telebot
 from telebot import types
 
 TOKEN = "8699727885:AAHWcstpPprG1kakmoIfWZ_EACCq9_FcUAU"
-ADMIN_ID = 8846734228
+# Faylning eng yuqorisiga o'zingizning Telegram ID'ingizni yozing:
+ADMIN_ID = 8846734228  # Bu yerga @userinfobot bergan ID raqamingizni yozing
+
+# Video qabul qiluvchi funksiyangiz (content_types=['video']):
+@bot.message_handler(content_types=['video'])
+def handle_video(message):
+    # Agar xabar yuborgan odam siz (admin) bo'lmasangiz:
+    if message.from_user.id != ADMIN_ID:
+        bot.reply_to(message, "⛔ Siz video yubora olmaysiz! Faqat admin kino qo'shishi mumkin.")
+        return
+
+    # --- Bu yerda sizning video saqlash kodingiz davom etadi ---
+    bot.reply_to(message, "Video muvaffaqiyatli saqlandi!")
+    
 bot = telebot.TeleBot(TOKEN)
 
 # Kinolar bazasi (file_id bilan birga)
