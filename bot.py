@@ -2,6 +2,7 @@ import telebot
 from telebot import types
 
 TOKEN = "8699727885:AAHWcstpPprG1kakmoIfWZ_EACCq9_FcUAU"
+ADMIN_ID = 8846734228
 bot = telebot.TeleBot(TOKEN)
 
 # Kinolar bazasi (file_id bilan birga)
